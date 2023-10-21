@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data;
-using Supermarket_mvp.Model;
+using Supermarket_mvp.Models;
 using System.Data;
 using Supermarket_mvp.Models;
 using System.Data.SqlClient;
@@ -35,8 +35,8 @@ namespace Supermarket_mvp._Repositories
         public IEnumerable<PaymodeModel> GetAll()
         {
             var payModeList = new List<PaymodeModel>();
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var command = new Microsoft.Data.SqlClient.SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
@@ -62,8 +62,8 @@ namespace Supermarket_mvp._Repositories
             var payModeList= new List<PaymodeModel>();
             int payModeId = int.TryParse(value, out _)? Convert.ToInt32(value) :0;
             string payModeName = value;
-            using (var connection = new SqlConnection(connectionString))
-            using (var command = new SqlCommand())
+            using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var command = new Microsoft.Data.SqlClient.SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
