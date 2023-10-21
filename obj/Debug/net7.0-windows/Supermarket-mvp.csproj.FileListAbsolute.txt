@@ -15,3 +15,4 @@ C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\refint\Supe
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.pdb
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.genruntimeconfig.cache
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\ref\Supermarket-mvp.dll
+C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.csproj.AssemblyReference.cache
