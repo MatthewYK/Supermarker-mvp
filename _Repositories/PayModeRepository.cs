@@ -19,17 +19,49 @@ namespace Supermarket_mvp._Repositories
         }
         public void Add(PaymodeModel paymodeModel)
         {
-            throw new NotImplementedException();
+            using (var connection  = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var command = new Microsoft.Data.SqlClient.SqlCommand())
+
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO PayMode VALUES (@name, @observation)";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = paymodeModel.Name;
+                command.Parameters.Add("@observation", SqlDbType.NVarChar).Value = paymodeModel.Observation;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var command = new Microsoft.Data.SqlClient.SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM PayMode Where Pay_Mode_Id=@id";
+                command.Parameters.Add("@Id", SqlDbType.NVarChar).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Edit(PaymodeModel paymodeModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var command = new Microsoft.Data.SqlClient.SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"UPDATE PayMode
+                                       SET Pay_Mode_Name=@name,
+                                       Pay_Mode_Observation =@observation
+                                       WHERE´Pay_Mode_Id =@id";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = paymodeModel.Name;
+                command.Parameters.Add("@observation", SqlDbType.NVarChar).Value = paymodeModel.Observation;
+                command.Parameters.Add("@Id", SqlDbType.NVarChar).Value = paymodeModel.Id;
+                command.ExecuteNonQuery();
+
+            }
         }
 
         public IEnumerable<PaymodeModel> GetAll()

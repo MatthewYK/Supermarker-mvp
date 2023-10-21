@@ -44,22 +44,76 @@ namespace Supermarket_mvp.Presenters
 
         private void SavePayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var payMode = new PaymodeModel();
+            payMode.Id = Convert.ToInt32(view.PayModeId);
+            payMode.Name = view.PayModeName;
+            payMode.Observation = view.PayModeObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().Validate(payMode);
+                if (view.IsEdit)
+                {
+                    repository.Edit(payMode);
+                    view.Message = "PayMode edited Successfuly";
+                }
+                else
+                {
+                    repository.Add(payMode);
+                    view.Message = "PayMode added succesfuly";
+                }
+                view.IsSuccessful = true;
+                loadAllPayModeList();
+                CleanViewFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+            
+        }
+        private void CleanViewFields()
+        {
+            view.PayModeId = "0";
+            view.PayModeName = "";
+            view.PayModeObservation = "";
+
+        }
+        private void CancelAction (object? sender, EventArgs e)
+        {
+            CleanViewFields();
         }
 
         private void DeleteSelectedPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var PayMode = (PaymodeModel)payModeBindingSource.Current;
+                repository.Delete(PayMode.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pay mode delected succesfully";
+                loadAllPayModeList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "Pay mode delected su";
+            }
         }
 
         private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var payMode = (PaymodeModel)payModeBindingSource.Current;
+            view.PayModeId = payMode.Id.ToString();
+            view.PayModeName= payMode.Name;
+            view.PayModeObservation = payMode.Observation;
+            view.IsEdit = true;
         }
 
         private void AddNewPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
         }
 
         private void SearchPayMode(object? sender, EventArgs e)
