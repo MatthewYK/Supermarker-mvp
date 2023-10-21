@@ -65,7 +65,7 @@ namespace Supermarket_mvp.Views
 
         private void AssociateAndRaiseViewEvents()
         {
-            BtnSearch_Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             TxtSearch.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
