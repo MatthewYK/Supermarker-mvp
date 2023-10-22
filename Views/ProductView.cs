@@ -15,7 +15,7 @@ namespace Supermarket_mvp.Views
         private bool isEdit;
         private bool isSuccesful;
         private string message;
-        int numero;
+        
         public ProductView()
         {
             InitializeComponent();
@@ -128,6 +128,8 @@ namespace Supermarket_mvp.Views
             get { return message; }
             set { message = value; }
         }
+
+        public string ProductPrice { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
