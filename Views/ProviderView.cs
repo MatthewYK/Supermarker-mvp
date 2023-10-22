@@ -10,31 +10,22 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class ProductView : Form, IProductView
+    public partial class ProviderView : Form, IProviderView
     {
         private bool isEdit;
         private bool isSuccesful;
         private string message;
-        int numero;
-        public ProductView()
+
+        public ProviderView()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
 
-            tabControl1.TabPages.Remove(tabPageProductDetail);
+            tabControl1.TabPages.Remove(tabPageProviderDetail);
 
             BtnClose.Click += delegate { this.Close(); };
         }
 
-        private void tabPageProductList_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
         private void AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
@@ -51,9 +42,9 @@ namespace Supermarket_mvp.Views
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(tabPageProductList);
-                tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Add New Product";
+                tabControl1.TabPages.Remove(tabPageProviderList);
+                tabControl1.TabPages.Add(tabPageProviderDetail);
+                tabPageProviderDetail.Text = "Add New Provider";
 
             };
 
@@ -61,9 +52,9 @@ namespace Supermarket_mvp.Views
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(tabPageProductList);
-                tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Edit Product";
+                tabControl1.TabPages.Remove(tabPageProviderList);
+                tabControl1.TabPages.Add(tabPageProviderDetail);
+                tabPageProviderDetail.Text = "Edit Provider";
             };
 
             BtnSave.Click += delegate
@@ -72,8 +63,8 @@ namespace Supermarket_mvp.Views
 
                 if (isSuccesful)
                 {
-                    tabControl1.TabPages.Remove(tabPageProductDetail);
-                    tabControl1.TabPages.Add(tabPageProductList);
+                    tabControl1.TabPages.Remove(tabPageProviderDetail);
+                    tabControl1.TabPages.Add(tabPageProviderList);
                 }
                 MessageBox.Show(Message);
             };
@@ -82,14 +73,14 @@ namespace Supermarket_mvp.Views
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(tabPageProductDetail);
-                tabControl1.TabPages.Add(tabPageProductList);
+                tabControl1.TabPages.Remove(tabPageProviderDetail);
+                tabControl1.TabPages.Add(tabPageProviderList);
             };
 
             BtnDelete.Click += delegate
             {
                 var result = MessageBox.Show(
-                    "Are you sure you want to delete the selected Product",
+                    "Are you sure you want to delete the selected Provider",
                     "Warning",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -99,38 +90,24 @@ namespace Supermarket_mvp.Views
                     MessageBox.Show(Message);
                 }
             };
+
         }
 
-        public string ProductId
+        public string ProviderId
         {
-            get { return TxtProductId.Text; }
-            set { TxtProductId.Text = value; }
+            get { return TxtProviderId.Text; }
+            set { TxtProviderId.Text = value; }
         }
-        public string ProductName
+        public string ProviderName
         {
-            get { return TxtProductName.Text; }
-            set { TxtProductName.Text = value; }
+            get { return TxtProviderName.Text; }
+            set { TxtProviderName.Text = value; }
         }
-        public string ProductObservation
+        public string ProviderObservation
         {
-            get { return TxtProductObservation.Text; }
-            set { TxtProductObservation.Text = value; }
+            get { return TxtProviderObservation.Text; }
+            set { TxtProviderObservation.Text = value; }
         }
-        public string ProductPrice
-        {
-
-            get
-            {
-                if (TxtProductPrice.Text != "" && int.TryParse(TxtProductPrice.Text, out numero))
-                {
-                    return TxtProductPrice.Text;
-                }
-                return "";
-            }
-            set { TxtProductPrice.Text = value; }
-        }
-
-
         public string SearchValue
         {
             get { return TxtSearch.Text; }
@@ -153,7 +130,6 @@ namespace Supermarket_mvp.Views
         }
 
 
-
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -162,18 +138,18 @@ namespace Supermarket_mvp.Views
         public event EventHandler CancelEvent;
         public event EventHandler SaveEvent;
 
-        public void SetProductListBildingSource(BindingSource productList)
+        public void SetProviderListBildingSource(BindingSource providerList)
         {
-            DgProduct.DataSource = productList;
+            DgProvider.DataSource = providerList;
         }
 
-        private static ProductView instance;
+        private static ProviderView instance;
 
-        public static ProductView GetInstance(Form parentContainer)
+        public static ProviderView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new ProductView();
+                instance = new ProviderView();
                 instance.MdiParent = parentContainer;
 
                 instance.FormBorderStyle = FormBorderStyle.None;
@@ -192,6 +168,3 @@ namespace Supermarket_mvp.Views
 
     }
 }
-
-
-

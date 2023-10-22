@@ -43,6 +43,8 @@
             TxtSearch = new TextBox();
             label1 = new Label();
             tabPageProductDetail = new TabPage();
+            TxtProductPrice = new TextBox();
+            label5 = new Label();
             BtnCancel = new Button();
             BtnSave = new Button();
             TxtProductObservation = new TextBox();
@@ -51,8 +53,6 @@
             label3 = new Label();
             TxtProductId = new TextBox();
             label2 = new Label();
-            TxtProductPrice = new TextBox();
-            label5 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -176,6 +176,7 @@
             DgProduct.AllowUserToAddRows = false;
             DgProduct.AllowUserToDeleteRows = false;
             DgProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgProduct.Location = new Point(13, 62);
             DgProduct.Name = "DgProduct";
@@ -223,6 +224,25 @@
             tabPageProductDetail.TabIndex = 1;
             tabPageProductDetail.Text = "Product Detail";
             tabPageProductDetail.UseVisualStyleBackColor = true;
+            // 
+            // TxtProductPrice
+            // 
+            TxtProductPrice.Location = new Point(253, 43);
+            TxtProductPrice.Name = "TxtProductPrice";
+            TxtProductPrice.PlaceholderText = "Enter price";
+            TxtProductPrice.Size = new Size(193, 23);
+            TxtProductPrice.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.Control;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(253, 19);
+            label5.Name = "label5";
+            label5.Size = new Size(142, 21);
+            label5.TabIndex = 11;
+            label5.Text = "PRODUCTS PRICE";
             // 
             // BtnCancel
             // 
@@ -301,25 +321,6 @@
             label2.Size = new Size(115, 21);
             label2.TabIndex = 2;
             label2.Text = "PRODUCTS ID";
-            // 
-            // TxtProductPrice
-            // 
-            TxtProductPrice.Location = new Point(253, 43);
-            TxtProductPrice.Name = "TxtProductPrice";
-            TxtProductPrice.PlaceholderText = "Enter price";
-            TxtProductPrice.Size = new Size(193, 23);
-            TxtProductPrice.TabIndex = 12;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = SystemColors.Control;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(253, 19);
-            label5.Name = "label5";
-            label5.Size = new Size(142, 21);
-            label5.TabIndex = 11;
-            label5.Text = "PRODUCTS PRICE";
             // 
             // ProductView
             // 
