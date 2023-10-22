@@ -54,6 +54,7 @@ namespace Supermarket_mvp.Presenters
                 new Common.ModelDataValidation().Validate(payMode);
                 if (view.IsEdit)
                 {
+                   
                     repository.Edit(payMode);
                     view.Message = "PayMode edited Successfuly";
                 }
@@ -62,16 +63,15 @@ namespace Supermarket_mvp.Presenters
                     repository.Add(payMode);
                     view.Message = "PayMode added succesfuly";
                 }
-                view.IsSuccessful = true;
-                loadAllPayModeList();
-                CleanViewFields();
             }
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
                 view.Message = ex.Message;
             }
-            
+            view.IsSuccessful = true;
+            loadAllPayModeList();
+            CleanViewFields();
         }
         private void CleanViewFields()
         {

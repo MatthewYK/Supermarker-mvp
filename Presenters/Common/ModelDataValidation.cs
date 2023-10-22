@@ -19,7 +19,7 @@ namespace Supermarket_mvp.Presenters.Common
             {
                 foreach (var item in  validationResults)
                 {
-                    errorMessage += item.ErrorMessage; +"\n";
+                    errorMessage += item.ErrorMessage +"\n";
                 }
                 throw new Exception (errorMessage);
             }

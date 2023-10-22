@@ -16,7 +16,7 @@ namespace Supermarket_mvp.Views
     {
         private bool isEdit;
         private bool isSuccessful;
-        private bool message;
+        private string message;
         public string PayModeId
         {
             get { return TxtPayModeId.Text; }
@@ -47,7 +47,7 @@ namespace Supermarket_mvp.Views
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
-        public bool Message
+        public string Message
         {
             get { return message; }
             set { message = value; }
@@ -80,10 +80,16 @@ namespace Supermarket_mvp.Views
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPagePayModeList);
                 tabControl1.TabPages.Add(tabPagePayModeDetail);
-                tabPagePayModeDetail.Text = "Edit Pay Mode";
+                tabPagePayModeDetail.Text = "Add New Pay Mode ";
             };
 
-            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPagePayModeList);
+                tabControl1.TabPages.Add(tabPagePayModeDetail);
+                tabPagePayModeDetail.Text = "Edit Pay Mode";
+            };
 
             BtnDelete.Click += delegate
             {
