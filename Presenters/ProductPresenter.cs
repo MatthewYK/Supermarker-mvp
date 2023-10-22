@@ -67,15 +67,15 @@ namespace Supermarket_mvp.Presenters
                     repository.Add(product);
                     view.Message = "Product added successfuly";
                 }
-                view.IsSuccesful = true;
-                LoadAllProductList();
-                CleanViewFields();
             }
             catch (Exception ex)
             {
                 view.IsSuccesful = false;
                 view.Message = ex.Message;
             }
+            view.IsSuccesful = true;
+            LoadAllProductList();
+            CleanViewFields();
         }
 
         private void CleanViewFields()

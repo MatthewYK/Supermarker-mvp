@@ -15,17 +15,26 @@ namespace Supermarket_mvp.Views
         private bool isEdit;
         private bool isSuccesful;
         private string message;
-        
+        int numero;
         public ProductView()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
 
-            tabControl1.TabPages.Remove(TabPageProductDetail);
+            tabControl1.TabPages.Remove(tabPageProductDetail);
 
             BtnClose.Click += delegate { this.Close(); };
         }
 
+        private void tabPageProductList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
         private void AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
@@ -42,9 +51,9 @@ namespace Supermarket_mvp.Views
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(TabPageProductList);
-                tabControl1.TabPages.Add(TabPageProductDetail);
-                TabPageProductDetail.Text = "Add New Product";
+                tabControl1.TabPages.Remove(tabPageProductList);
+                tabControl1.TabPages.Add(tabPageProductDetail);
+                tabPageProductDetail.Text = "Add New Product";
 
             };
 
@@ -52,9 +61,9 @@ namespace Supermarket_mvp.Views
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(TabPageProductList);
-                tabControl1.TabPages.Add(TabPageProductDetail);
-                TabPageProductDetail.Text = "Edit Product";
+                tabControl1.TabPages.Remove(tabPageProductList);
+                tabControl1.TabPages.Add(tabPageProductDetail);
+                tabPageProductDetail.Text = "Edit Product";
             };
 
             BtnSave.Click += delegate
@@ -63,8 +72,8 @@ namespace Supermarket_mvp.Views
 
                 if (isSuccesful)
                 {
-                    tabControl1.TabPages.Remove(TabPageProductDetail);
-                    tabControl1.TabPages.Add(TabPageProductList);
+                    tabControl1.TabPages.Remove(tabPageProductDetail);
+                    tabControl1.TabPages.Add(tabPageProductList);
                 }
                 MessageBox.Show(Message);
             };
@@ -73,8 +82,8 @@ namespace Supermarket_mvp.Views
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
 
-                tabControl1.TabPages.Remove(TabPageProductDetail);
-                tabControl1.TabPages.Add(TabPageProductList);
+                tabControl1.TabPages.Remove(tabPageProductDetail);
+                tabControl1.TabPages.Add(tabPageProductList);
             };
 
             BtnDelete.Click += delegate
@@ -107,6 +116,20 @@ namespace Supermarket_mvp.Views
             get { return TxtProductObservation.Text; }
             set { TxtProductObservation.Text = value; }
         }
+        public string ProductPrice
+        {
+
+            get
+            {
+                if (TxtProductPrice.Text != "" && int.TryParse(TxtProductPrice.Text, out numero))
+                {
+                    return TxtProductPrice.Text;
+                }
+                return "";
+            }
+            set { TxtProductPrice.Text = value; }
+        }
+
 
         public string SearchValue
         {
@@ -129,7 +152,7 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
-        public string ProductPrice { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -169,4 +192,6 @@ namespace Supermarket_mvp.Views
 
     }
 }
+
+
 
