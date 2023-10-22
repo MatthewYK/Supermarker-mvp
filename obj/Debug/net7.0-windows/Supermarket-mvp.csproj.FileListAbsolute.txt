@@ -50,3 +50,4 @@ C:\Users\mateo\source\repos\Supermarket-mvp\bin\Debug\net7.0-windows\runtimes\wi
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.csproj.CopyComplete
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.ProductView.resources
 C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.ProviderView.resources
+C:\Users\mateo\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.CategorieView.resources
