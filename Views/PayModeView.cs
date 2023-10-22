@@ -61,7 +61,7 @@ namespace Supermarket_mvp.Views
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
-            tabControl1.TabPages.Remove(tabPagePayModeDetail);
+            tabControl1.TabPages.Remove(tabPageProductDetail);
             BtnClose.Click += delegate { this.Close(); };
         }
 
@@ -79,16 +79,16 @@ namespace Supermarket_mvp.Views
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPagePayModeList);
-                tabControl1.TabPages.Add(tabPagePayModeDetail);
-                tabPagePayModeDetail.Text = "Add New Pay Mode ";
+                tabControl1.TabPages.Add(tabPageProductDetail);
+                tabPageProductDetail.Text = "Add New Pay Mode ";
             };
 
             BtnEdit.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPagePayModeList);
-                tabControl1.TabPages.Add(tabPagePayModeDetail);
-                tabPagePayModeDetail.Text = "Edit Pay Mode";
+                tabControl1.TabPages.Add(tabPageProductDetail);
+                tabPageProductDetail.Text = "Edit Pay Mode";
             };
 
             BtnDelete.Click += delegate
@@ -109,7 +109,7 @@ namespace Supermarket_mvp.Views
                 SaveEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessful)
                 {
-                    tabControl1.TabPages.Remove(tabPagePayModeDetail);
+                    tabControl1.TabPages.Remove(tabPageProductDetail);
                     tabControl1.TabPages.Add(tabPagePayModeList);
                 }
                 MessageBox.Show(Message);
@@ -118,7 +118,7 @@ namespace Supermarket_mvp.Views
             BtnCancel.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
-                tabControl1.TabPages.Remove(tabPagePayModeDetail);
+                tabControl1.TabPages.Remove(tabPageProductDetail);
                 tabControl1.TabPages.Add(tabPagePayModeList);
 
             };

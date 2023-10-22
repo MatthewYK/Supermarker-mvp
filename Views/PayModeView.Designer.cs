@@ -42,7 +42,7 @@
             DgPayMode = new DataGridView();
             TxtSearch = new TextBox();
             label2 = new Label();
-            tabPagePayModeDetail = new TabPage();
+            tabPageProductDetail = new TabPage();
             TxtPayModeNam = new TextBox();
             BtnCancel = new Button();
             BtnSave = new Button();
@@ -56,7 +56,7 @@
             tabControl1.SuspendLayout();
             tabPagePayModeList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgPayMode).BeginInit();
-            tabPagePayModeDetail.SuspendLayout();
+            tabPageProductDetail.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -95,7 +95,7 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPagePayModeList);
-            tabControl1.Controls.Add(tabPagePayModeDetail);
+            tabControl1.Controls.Add(tabPageProductDetail);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 100);
             tabControl1.Name = "tabControl1";
@@ -208,23 +208,23 @@
             label2.Text = "Search Pay Mode";
             label2.Click += label2_Click;
             // 
-            // tabPagePayModeDetail
+            // tabPageProductDetail
             // 
-            tabPagePayModeDetail.Controls.Add(TxtPayModeNam);
-            tabPagePayModeDetail.Controls.Add(BtnCancel);
-            tabPagePayModeDetail.Controls.Add(BtnSave);
-            tabPagePayModeDetail.Controls.Add(TxtPayModeObservation);
-            tabPagePayModeDetail.Controls.Add(TxtPayModeObserv);
-            tabPagePayModeDetail.Controls.Add(TxtPayModeName);
-            tabPagePayModeDetail.Controls.Add(lbl1);
-            tabPagePayModeDetail.Controls.Add(TxtPayModeId);
-            tabPagePayModeDetail.Location = new Point(4, 24);
-            tabPagePayModeDetail.Name = "tabPagePayModeDetail";
-            tabPagePayModeDetail.Padding = new Padding(3);
-            tabPagePayModeDetail.Size = new Size(792, 322);
-            tabPagePayModeDetail.TabIndex = 1;
-            tabPagePayModeDetail.Text = " Pay Mode Detail";
-            tabPagePayModeDetail.UseVisualStyleBackColor = true;
+            tabPageProductDetail.Controls.Add(TxtPayModeNam);
+            tabPageProductDetail.Controls.Add(BtnCancel);
+            tabPageProductDetail.Controls.Add(BtnSave);
+            tabPageProductDetail.Controls.Add(TxtPayModeObservation);
+            tabPageProductDetail.Controls.Add(TxtPayModeObserv);
+            tabPageProductDetail.Controls.Add(TxtPayModeName);
+            tabPageProductDetail.Controls.Add(lbl1);
+            tabPageProductDetail.Controls.Add(TxtPayModeId);
+            tabPageProductDetail.Location = new Point(4, 24);
+            tabPageProductDetail.Name = "tabPageProductDetail";
+            tabPageProductDetail.Padding = new Padding(3);
+            tabPageProductDetail.Size = new Size(792, 322);
+            tabPageProductDetail.TabIndex = 1;
+            tabPageProductDetail.Text = " Pay Mode Detail";
+            tabPageProductDetail.UseVisualStyleBackColor = true;
             // 
             // TxtPayModeNam
             // 
@@ -319,8 +319,8 @@
             tabPagePayModeList.ResumeLayout(false);
             tabPagePayModeList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DgPayMode).EndInit();
-            tabPagePayModeDetail.ResumeLayout(false);
-            tabPagePayModeDetail.PerformLayout();
+            tabPageProductDetail.ResumeLayout(false);
+            tabPageProductDetail.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -331,7 +331,7 @@
         private PictureBox pictureBox1;
         private TabControl tabControl1;
         private TabPage tabPagePayModeList;
-        private TabPage tabPagePayModeDetail;
+        private TabPage tabPageProductDetail;
         private Label label2;
         private TextBox TxtSearch;
         private DataGridView DgPayMode;
